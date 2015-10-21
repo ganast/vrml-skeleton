@@ -1,0 +1,703 @@
+#VRML V2.0 utf8
+
+#
+# VRML Skeleton - A simple, interactive humanoid skeleton in VRML.
+#
+# Copyright (C) 2010-2015 by George Anastassakis
+#
+# VRML Skeleton is free software: you can redistribute it and/or modify it under
+# the terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later
+# version.
+#
+# VRML Skeleton is distributed in the hope that it will be useful, but WITHOUT
+# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+# FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# VRML Skeleton. If not, see http://www.gnu.org/licenses/.
+#
+# For questions and comments please contact george.anastassakis@gmail.com.
+#
+
+#
+# Structure (joints are prefixed with "*"):
+#
+# skeleton
+#   pelvis
+#     *hip-right
+#       leg-upper-left
+#         *knee-left
+#           foot-left
+#     *hip-left
+#       leg-upper-left
+#         *knee-left
+#           foot-left
+#  *waist
+#    torso
+#      *chest
+#        clavicle
+#          *shoulder-right
+#            arm-upper-right
+#              *elbow-right
+#                arm-lower-right
+#                  hand-right
+#          *shoulder-left
+#            arm-upper-left
+#              *elbow-left
+#                arm-lower-left
+#                  hand-left
+#		 *neck
+#          head
+#
+
+WorldInfo {
+
+	title "VRML Skeleton"
+
+	info [
+		"A simple, interactive humanoid skeleton in VRML."
+		"Copyright (C) by George Anastassakis"
+		"VRML Skeleton is made available under the terms of the GNU General Public License as published by the Free Software Foundation, available at http://www.gnu.org/licenses/."
+		"Contact: george.anastassakis@gmail.com"
+	]
+}
+
+DEF	skeleton Transform {
+
+	children [
+
+		DEF	pelvis Transform {
+
+			children [
+
+				DEF	pelvis-sh-tr Transform {
+
+					rotation 0 0 1 1.571
+				
+					children [
+
+						DEF	pelvis-sh Shape {
+
+							appearance Appearance {
+
+								material DEF part-mat Material {
+									diffuseColor 0 0 .72
+									specularColor .5 .5 .5
+									emissiveColor 0 0 .13
+									ambientIntensity 0
+								}
+							}
+
+							geometry Cylinder {
+								radius 0.05
+								height 0.5
+							}
+						}
+					]
+				}
+
+				DEF	hip-left Transform	{
+
+					translation	0.25 0 0
+
+					children [
+
+						DEF	hip-left-sh Shape {
+
+							appearance Appearance {
+								material DEF joint-mat Material {
+									diffuseColor .8 0 0
+									specularColor .5 .5 .5
+									emissiveColor .15 0 0
+									ambientIntensity 0
+								}
+							}
+
+							geometry Sphere {
+								radius 0.08
+							}
+						}
+
+						DEF	leg-upper-left Transform {
+
+							children [
+
+								DEF leg-upper-left-ss SphereSensor {
+								}
+
+								DEF leg-upper-left-tr Transform {
+
+									translation	0 -0.11875 0
+
+									children [
+
+										DEF	leg-upper-left-sh Shape {
+
+											appearance Appearance {
+
+												material USE part-mat
+											}
+
+											geometry Cylinder {
+												radius 0.05
+												height 0.2375
+											}
+										}
+
+										DEF knee-left Transform {
+
+											translation	0 -0.11875 0
+
+											children [
+
+												DEF	knee-left-sh Shape {
+
+													appearance Appearance {
+														material USE joint-mat
+													}
+
+													geometry Sphere {
+														radius 0.08
+													}
+												}
+
+												DEF leg-lower-left-ss SphereSensor {
+												}
+
+												DEF leg-lower-left-tr Transform {
+
+													translation	0 -0.11875 0
+
+													children [
+
+														DEF	leg-lower-left-sh Shape {
+
+															appearance Appearance {
+
+																material USE part-mat
+															}
+
+															geometry Cylinder {
+																radius 0.05
+																height 0.2375
+															}
+														}
+
+														DEF foot-left Transform {
+
+															translation	0 -0.11875 0
+
+															children [
+
+																DEF	foot-left-sh Shape {
+
+																	appearance Appearance {
+																		material USE joint-mat
+																	}
+
+																	geometry Sphere {
+																		radius 0.08
+																	}
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+
+				DEF	hip-right Transform	{
+
+					translation	-0.25 0 0
+
+					children [
+
+						DEF	hip-right-sh Shape {
+
+							appearance Appearance {
+								material USE joint-mat
+							}
+
+							geometry Sphere {
+								radius 0.08
+							}
+						}
+
+						DEF	leg-upper-right Transform {
+
+							children [
+
+								DEF leg-upper-right-ss SphereSensor {
+								}
+
+								DEF leg-upper-right-tr Transform {
+
+									translation	0 -0.11875 0
+
+									children [
+
+										DEF	leg-upper-right-sh Shape {
+
+											appearance Appearance {
+
+												material USE part-mat
+											}
+
+											geometry Cylinder {
+												radius 0.05
+												height 0.2375
+											}
+										}
+
+										DEF knee-right Transform {
+
+											translation	0 -0.11875 0
+
+											children [
+
+												DEF	knee-right-sh Shape {
+
+													appearance Appearance {
+														material USE joint-mat
+													}
+
+													geometry Sphere {
+														radius 0.08
+													}
+												}
+
+												DEF leg-lower-right-ss SphereSensor {
+												}
+
+												DEF leg-lower-right-tr Transform {
+
+													translation	0 -0.11875 0
+
+													children [
+
+														DEF	leg-lower-right-sh Shape {
+
+															appearance Appearance {
+
+																material USE part-mat
+															}
+
+															geometry Cylinder {
+																radius 0.05
+																height 0.2375
+															}
+														}
+
+														DEF foot-right Transform {
+
+															translation	0 -0.11875 0
+
+															children [
+
+																DEF	foot-right-sh Shape {
+
+																	appearance Appearance {
+																		material USE joint-mat
+																	}
+
+																	geometry Sphere {
+																		radius 0.08
+																	}
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+
+		DEF	waist Transform {
+
+			children [
+
+				DEF	waist-sh Shape {
+
+					appearance Appearance {
+
+						material USE joint-mat
+					}
+
+					geometry Sphere	{
+						radius 0.08
+					}
+				}
+
+				DEF	torso Transform {
+
+					children [
+
+						DEF	torso-ss SphereSensor {
+						}
+
+						DEF	torso-tr Transform {
+
+							translation	0 0.375 0
+		
+							children [
+
+								DEF	torso-sh Shape {
+
+									appearance Appearance {
+										material USE part-mat
+									}
+
+									geometry Cylinder {
+										radius 0.05
+										height 0.75
+									}
+								}
+
+								DEF	chest Transform {
+
+									translation	0 0.375 0
+
+									children [
+
+										DEF	chest-sh Shape {
+
+											appearance Appearance {
+												material USE joint-mat
+											}
+
+											geometry Sphere {
+												radius 0.08
+											}
+										}
+
+										DEF neck Transform	{
+
+											translation	0 0.11 0
+
+											children [
+
+												DEF	neck-sh Shape {
+
+													appearance Appearance {
+
+														material USE joint-mat
+													}
+
+													geometry Sphere	{
+														radius 0.03
+													}
+												}
+
+												DEF	head Transform {
+
+													translation	0 0.15 0
+
+													children [
+
+														DEF	head-ss SphereSensor {
+														}
+														
+														DEF	head-sh Shape {
+
+															appearance Appearance {
+
+																material USE part-mat
+															}
+
+															geometry Sphere	{
+																radius 0.12
+															}
+														}
+													]
+												}
+											]
+										}
+
+
+										DEF	clavicle Transform {
+
+											children [
+
+												DEF	clavicle-ss SphereSensor {
+												}
+								
+												DEF	clavicle-sh-tr Transform {
+
+													rotation 0 0 1 1.571
+						
+													children [
+
+														DEF	clavicle-sh Shape {
+
+															appearance Appearance {
+
+																material USE part-mat
+															}
+
+															geometry Cylinder {
+																radius 0.05
+																height 0.75
+															}
+														}
+													]
+												}
+
+												DEF	shoulder-left Transform	{
+
+													translation	0.375 0 0
+
+													children [
+
+														DEF	shoulder-left-sh Shape {
+
+															appearance Appearance {
+																material USE joint-mat
+															}
+
+															geometry Sphere {
+																radius 0.08
+															}
+														}
+
+														DEF	arm-upper-left Transform {
+
+															children [
+
+																DEF arm-upper-left-ss SphereSensor {
+																}
+
+																DEF arm-upper-left-tr Transform {
+
+																	translation	0 -0.11875 0
+
+																	children [
+
+																		DEF	arm-upper-left-sh Shape {
+
+																			appearance Appearance {
+
+																				material USE part-mat
+																			}
+
+																			geometry Cylinder {
+																				radius 0.05
+																				height 0.2375
+																			}
+																		}
+
+																		DEF elbow-left Transform {
+
+																			translation	0 -0.11875 0
+
+																			children [
+
+																				DEF	elbow-left-sh Shape {
+
+																					appearance Appearance {
+																						material USE joint-mat
+																					}
+
+																					geometry Sphere {
+																						radius 0.08
+																					}
+																				}
+
+																				DEF arm-lower-left-ss SphereSensor {
+																				}
+
+																				DEF arm-lower-left-tr Transform {
+
+																					translation	0 -0.11875 0
+
+																					children [
+
+																						DEF	arm-lower-left-sh Shape {
+
+																							appearance Appearance {
+
+																								material USE part-mat
+																							}
+
+																							geometry Cylinder {
+																								radius 0.05
+																								height 0.2375
+																							}
+																						}
+
+																						DEF hand-left Transform {
+
+																							translation	0 -0.11875 0
+
+																							children [
+
+																								DEF	hand-left-sh Shape {
+
+																									appearance Appearance {
+																										material USE joint-mat
+																									}
+
+																									geometry Sphere {
+																										radius 0.08
+																									}
+																								}
+																							]
+																						}
+																					]
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														}
+													]
+												}
+
+												DEF	shoulder-right Transform	{
+
+													translation	-0.375 0 0
+
+													children [
+
+														DEF	shoulder-right-sh Shape {
+
+															appearance Appearance {
+																material USE joint-mat
+															}
+
+															geometry Sphere {
+																radius 0.08
+															}
+														}
+
+														DEF	arm-upper-right Transform {
+
+															children [
+
+																DEF arm-upper-right-ss SphereSensor {
+																}
+
+																DEF arm-upper-right-tr Transform {
+
+																	translation	0 -0.11875 0
+
+																	children [
+
+																		DEF	arm-upper-right-sh Shape {
+
+																			appearance Appearance {
+
+																				material USE part-mat
+																			}
+
+																			geometry Cylinder {
+																				radius 0.05
+																				height 0.2375
+																			}
+																		}
+
+																		DEF elbow-right Transform {
+
+																			translation	0 -0.11875 0
+
+																			children [
+
+																				DEF	elbow-right-sh Shape {
+
+																					appearance Appearance {
+																						material USE joint-mat
+																					}
+
+																					geometry Sphere {
+																						radius 0.08
+																					}
+																				}
+
+																				DEF arm-lower-right-ss SphereSensor {
+																				}
+
+																				DEF arm-lower-right-tr Transform {
+
+																					translation	0 -0.11875 0
+
+																					children [
+
+																						DEF	arm-lower-right-sh Shape {
+
+																							appearance Appearance {
+
+																								material USE part-mat
+																							}
+
+																							geometry Cylinder {
+																								radius 0.05
+																								height 0.2375
+																							}
+																						}
+
+																						DEF hand-right Transform {
+
+																							translation	0 -0.11875 0
+
+																							children [
+
+																								DEF	hand-right-sh Shape {
+
+																									appearance Appearance {
+																										material USE joint-mat
+																									}
+
+																									geometry Sphere {
+																										radius 0.08
+																									}
+																								}
+																							]
+																						}
+																					]
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}
+
+ROUTE torso-ss.rotation_changed	TO waist.rotation
+ROUTE clavicle-ss.rotation_changed TO chest.rotation
+ROUTE arm-upper-left-ss.rotation_changed TO shoulder-left.rotation
+ROUTE arm-lower-left-ss.rotation_changed TO elbow-left.rotation
+ROUTE arm-upper-right-ss.rotation_changed TO shoulder-right.rotation
+ROUTE arm-lower-right-ss.rotation_changed TO elbow-right.rotation
+ROUTE leg-upper-left-ss.rotation_changed TO hip-left.rotation
+ROUTE leg-lower-left-ss.rotation_changed TO knee-left.rotation
+ROUTE leg-upper-right-ss.rotation_changed TO hip-right.rotation
+ROUTE leg-lower-right-ss.rotation_changed TO knee-right.rotation
+ROUTE head-ss.rotation_changed TO neck.rotation
